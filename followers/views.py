@@ -3,6 +3,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from .models import Follower
 from .serializers import FollowerSerializer
 
+# Code Credit: DRF API Walkthrough
 class FollowerList(generics.ListCreateAPIView):
     """
     List all followers, i.e. all instances of a user
@@ -21,7 +22,7 @@ class FollowerDetail(generics.RetrieveDestroyAPIView):
     """
     Retrieve a follower.
     No update view, as we either follow or unfollow users.
-    Destroy a followe, i.e. unfollow someone if owner.
+    Destroy a follower, i.e. unfollow someone if owner.
     """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = FollowerSerializer

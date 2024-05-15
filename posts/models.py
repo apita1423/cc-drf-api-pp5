@@ -1,7 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# Code Credit: DRF API Walkthrough
+# Modifications made to the image_filter_choices
 class Post(models.Model):
+    """
+    Post model, related to 'owner', i.e. a User instance.
+    Default image set so that we cal always reference image.url.
+    """
     image_filter_choices = [
     ('galaxy', 'Galaxy'), 
     ('deep space', 'Deep Space'),

@@ -23,6 +23,9 @@ class ChronicleList(generics.ListCreateAPIView):
     ]
 
 class ChronicleDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve news, update, or delete it by id if you own it.
+    """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ChronicleSerializer
     queryset = Chronicle.objects.all()

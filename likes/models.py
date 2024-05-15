@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from posts.models import Post
 
+# Code Credit: DRF API Walkthrough
 class Like(models.Model):
     """
     Like model, related to 'owner' and 'post'.

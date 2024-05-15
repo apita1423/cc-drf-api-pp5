@@ -5,6 +5,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from .models import Profile
 from .serializers import ProfileSerializer
 
+# Code Credit: DRF API Walkthrough
 class ProfileList(generics.ListCreateAPIView):
     """
     List all profiles.

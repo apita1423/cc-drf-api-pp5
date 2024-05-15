@@ -5,6 +5,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
 
+# Code Credit: DRF API Walkthrough
 class PostList(generics.ListCreateAPIView):
     """
     List posts or create a post if logged in.

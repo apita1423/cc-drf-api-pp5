@@ -25,6 +25,9 @@ class EventList(generics.ListCreateAPIView):
     ]
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve an event, update, or delete it by id if you own it.
+    """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = EventSerializer
     queryset = Event.objects.all()
