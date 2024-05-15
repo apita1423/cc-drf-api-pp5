@@ -3,13 +3,27 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     image_filter_choices = [
-    ('_1977', '1977'), ('brannan', 'Brannan'),
-    ('earlybird', 'Earlybird'), ('hudson', 'Hudson'),
-    ('inkwell', 'Inkwell'), ('lofi', 'Lo-Fi'),
-    ('kelvin', 'Kelvin'), ('normal', 'Normal'),
-    ('nashville', 'Nashville'), ('rise', 'Rise'),
-    ('toaster', 'Toaster'), ('valencia', 'Valencia'),
-    ('walden', 'Walden'), ('xpro2', 'X-pro II')
+    ('galaxy', 'Galaxy'), 
+    ('deep space', 'Deep Space'),
+    ('sun', 'Sun'), 
+    ('mercury', 'Mercury'),
+    ('venus', 'Venus'), 
+    ('earth', 'Earth'),
+    ('mars', 'Mars'), 
+    ('jupiter', 'Jupiter'),
+    ('saturn', 'Saturn'), 
+    ('uranus', 'Uranus'),
+    ('neptune', 'Neptune'), 
+    ('aurora borealis', 'Aurora Borealis'),
+    ('citizen science', 'Citizen Science'), 
+    ('astrophotography', 'Astrophotography'),
+    ('art', 'Art'),
+    ('deep space', 'Deep Space'),
+    ('solar system', 'Solar System'),
+    ('science fiction', 'Science Fiction'),
+    ('telescope', 'Telescope'),
+    ('spacecraft', 'Spacecraft'),
+    ('missions', 'Missions'),
     ]
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
