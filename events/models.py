@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Event(models.Model):
     """
     Events model
@@ -23,6 +24,6 @@ class Event(models.Model):
         Order events by date
         """
         ordering = ['created_on']
-    
+
     def __str__(self):
         return f'Event: {self.title} | Date: {self.date}'

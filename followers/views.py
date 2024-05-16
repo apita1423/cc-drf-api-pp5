@@ -3,6 +3,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from .models import Follower
 from .serializers import FollowerSerializer
 
+
 # Code Credit: DRF API Walkthrough
 class FollowerList(generics.ListCreateAPIView):
     """
@@ -17,6 +18,7 @@ class FollowerList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class FollowerDetail(generics.RetrieveDestroyAPIView):
     """

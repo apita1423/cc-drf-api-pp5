@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Chronicle(models.Model):
     """
     News Model
@@ -22,7 +23,7 @@ class Chronicle(models.Model):
     description = models.TextField()
     category = models.CharField(
         max_length=55,
-        choices=category_choices, 
+        choices=category_choices,
         default='space news'
     )
     author = models.CharField(max_length=255)
@@ -30,9 +31,9 @@ class Chronicle(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(
-        upload_to='images/', 
+        upload_to='images/',
         default='../default_post_w1mkqv',
-        blank=True, 
+        blank=True,
     )
     image_copyright = models.CharField(max_length=255, blank=False)
 
@@ -41,8 +42,6 @@ class Chronicle(models.Model):
         News display by date created.
         """
         ordering = ['-created_at']
-    
+
     def __str__(self):
         return f'By: {self.author} | Published: {self.published_on}'
-    
-    

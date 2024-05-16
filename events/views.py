@@ -3,6 +3,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from .models import Event
 from .serializers import EventSerializer
 
+
 class EventList(generics.ListCreateAPIView):
     serializer_class = EventSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -10,7 +11,7 @@ class EventList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-    
+
     filter_backends = [
         filters.SearchFilter,
     ]
@@ -23,6 +24,7 @@ class EventList(generics.ListCreateAPIView):
         'price',
         'date',
     ]
+
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """

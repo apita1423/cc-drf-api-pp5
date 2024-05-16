@@ -5,6 +5,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
 
+
 # Code Credit: DRF API Walkthrough
 class PostList(generics.ListCreateAPIView):
     """
@@ -41,6 +42,7 @@ class PostList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class PostDetail(generics.RetrieveDestroyAPIView):
     """

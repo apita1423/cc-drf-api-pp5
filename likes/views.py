@@ -3,6 +3,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from likes.models import Like
 from likes.serializers import LikeSerializer
 
+
 # Code Credit: DRF API Walkthrough
 class LikeList(generics.ListCreateAPIView):
     """
@@ -15,6 +16,7 @@ class LikeList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+
 class LikeDetail(generics.RetrieveDestroyAPIView):
     """
     Retrieve a like or delete it by id if you own it.
@@ -22,3 +24,4 @@ class LikeDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = LikeSerializer
     queryset = Like.objects.all()
+    

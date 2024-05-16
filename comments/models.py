@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from posts.models import Post
 
+
 # Code Credit: DRF API Walkthrough
 class Comment(models.Model):
     """
@@ -15,7 +16,6 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-    
+
     def __str__(self):
         return self.content
-    

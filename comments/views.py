@@ -4,6 +4,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from .models import Comment
 from .serializers import CommentSerializer, CommentDetailSerializer
 
+
 # Code Credit: DRF API Walkthrough
 class CommentList(generics.ListCreateAPIView):
     """
@@ -18,6 +19,7 @@ class CommentList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a comment, or update or delete it by id if you own it.
@@ -25,4 +27,3 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = CommentDetailSerializer
     queryset = Comment.objects.all()
-    

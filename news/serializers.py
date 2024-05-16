@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Chronicle
 
+
 class ChronicleSerializer(serializers.ModelSerializer):
     """
     Serializer for the News model.
@@ -27,12 +28,12 @@ class ChronicleSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-    
+
     class Meta:
         model = Chronicle
         fields = [
             'id', 'owner', 'title', 'description', 'category',
             'author', 'published_on', 'created_at', 'updated_at',
-            'image', 'image_copyright', 'is_owner', 'profile_id', 
+            'image', 'image_copyright', 'is_owner', 'profile_id',
             'profile_image',
         ]

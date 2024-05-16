@@ -5,6 +5,7 @@ from drf_api_pp5.permissions import IsOwnerOrReadOnly
 from .models import Profile
 from .serializers import ProfileSerializer
 
+
 # Code Credit: DRF API Walkthrough
 class ProfileList(generics.ListCreateAPIView):
     """
@@ -32,6 +33,7 @@ class ProfileList(generics.ListCreateAPIView):
         'owner__following__created_at',
         'owner__followed__created_at',
     ]
+
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
