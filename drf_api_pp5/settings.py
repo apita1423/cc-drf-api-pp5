@@ -112,18 +112,29 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-
+CORS_ALLOWED_ORIGINS = [
+    "https://cosmoschronicles-pp5-25951ae1934d.herokuapp.com",
+    "https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:8000",
+]
+# Add local development origin if CLIENT_ORIGIN_DEV is set
 if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(r'^([^.]+)', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    dev_origin = os.environ.get('CLIENT_ORIGIN_DEV')
+    CORS_ALLOWED_ORIGINS.append(dev_origin)
 
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}.(eu|us)\d+\.codeanyapp\.com$",
-        r"^https://.*\.herokuapp\.com$",
-    ]
+# if 'CLIENT_ORIGIN' in os.environ:
+#     CORS_ALLOWED_ORIGINS = [
+#         os.environ.get('CLIENT_ORIGIN')
+#     ]
+
+# if 'CLIENT_ORIGIN_DEV' in os.environ:
+#     extracted_url = re.match(r'^([^.]+)', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+
+#     CORS_ALLOWED_ORIGIN_REGEXES = [
+#         rf"{extracted_url}.(eu|us)\d+\.codeanyapp\.com$",
+#         r"^https://.*\.herokuapp\.com$",
+#     ]
 
 
 CORS_ALLOWED_CREDENTIALS = True
