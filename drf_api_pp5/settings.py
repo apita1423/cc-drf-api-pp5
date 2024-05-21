@@ -113,7 +113,7 @@ MIDDLEWARE = [
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN'),
-        'https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com',
+        'https://cosmoschronicles-pp5-25951ae1934d.herokuapp.com',
         'http://localhost:3000',
     ]
 
