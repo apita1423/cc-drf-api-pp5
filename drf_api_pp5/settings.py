@@ -64,6 +64,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
+    '127.0.0.1',
     'localhost',
 ]
 
@@ -124,7 +125,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}.(eu|us)\d+\.codeanyapp\.com$",
     ]
  
-CORS_ALLOWED_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'drf_api_pp5.urls'
 
