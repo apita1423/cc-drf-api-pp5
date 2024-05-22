@@ -22,7 +22,7 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
     - [Languages Used](#languages-used)
     - [Libraries, Framework, and Programs](#libraries-framework-programs)
 
-- [Bugs]
+- [Bugs](#bugs)
 
 - [Project Setup](#project-setup)
 
