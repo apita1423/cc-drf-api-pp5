@@ -14,7 +14,7 @@ class PostList(generics.ListCreateAPIView):
     """
     serializer_class = PostSerializer
     queryset = Post.objects.annotate(
-        likes_count=Count('likes', distinct=True)
+        likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
