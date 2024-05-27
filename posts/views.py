@@ -14,7 +14,7 @@ class PostList(generics.ListCreateAPIView):
     """
     serializer_class = PostSerializer
     queryset = Post.objects.annotate(
-        likes_count=Count('likes', distinct=True),
+        likes_count=Count('likes', distinct=True)
         comments_count=Count('comment', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
@@ -44,7 +44,7 @@ class PostList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class PostDetail(generics.RetrieveDestroyAPIView):
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a post and edit or delete it if you own it.
     """
