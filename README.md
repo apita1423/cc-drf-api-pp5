@@ -40,7 +40,7 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
     - [CI Database](#ci-database)
 
 - [Credits](#credits)
-    - [Sources](#sourcecs)
+    - [Code Used](#code-used)
     - [Acknowledgments](#acknowledgments)
 
 ---
@@ -71,9 +71,21 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
 
 ### Languages Used
 
+- Python
+
 ### Frameworks and Libraries Used
 
+- Django
+- Django Rest Framework
+- Heroku
+- Cloudinary
+- Pillow
+- CORS Headers
+- DrawSQL - Used for creating the database relationship scheme.
+
 ### Database Used
+
+- CI's Database PostgreSQL
 
 ---
 
@@ -101,10 +113,16 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
 
 ## Credits
 
-### Sources
+### Code Used
+
+- I relied on CI's Django REST Framework Walkthrough, with the addition of two apps: news and events.
 
 ### Acknowledgments
 
+- Again, and for the last time, I'm truly grateful for my mentor, Martina. She has been the best mentor someone could ask for. 
 
+- Oisin from Tutor Support, who helped with a few issues that came up. 
+
+- My husband who has encouraged me throughout the course, and, of course, my animals who have been okay with me being in front of a computer and not being a bed for them to relax. After this I can go back to being a bed. 
 
 
