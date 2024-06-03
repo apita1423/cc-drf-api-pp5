@@ -47,6 +47,8 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
 
 ## Database Relationship Schema
 
+![Database Relationship Schema Diagram](/static/readme-images/pp5-database.png)
+
 ---
 
 ## User Stories
