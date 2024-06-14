@@ -35,7 +35,7 @@ REST_FRAMEWORK = {
     )],
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 5,
+    'PAGE_SIZE': 10,
     'DATETIME_FORMAT': '%d %b %Y',
 }
 if 'DEV' not in os.environ:
@@ -67,6 +67,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     'cc-drf-api-pp5-b19f7ab60297.herokuapp.com'
+    'apita1423-cosmoschronic-rg6c1ozoj05.ws.codeinstitute-ide.net'
 ]
 
 
@@ -123,7 +124,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     extracted_url = re.match(r'^([^.]+)', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
 
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}.(eu|us)\d+\.codeanyapp\.com$",
+        rf"{extracted_url}.(eu|us)\d+\.gitpod\.io$",
     ]
  
 CORS_ALLOW_CREDENTIALS = True
