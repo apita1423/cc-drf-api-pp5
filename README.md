@@ -26,8 +26,6 @@ Cosmos Chronicles is a social media app that brings users who love anything astr
     - [Database Used](#database-used)
 
 - [Bugs](#bugs)
-    - [Fixed Bugs](#fixed-bugs)
-    - [Unfixed Bugs](#unfixed-bugs)
 
 - [Project Setup](#project-setup)
 
@@ -75,10 +73,6 @@ Cosmos Chronicles is a social media app that brings users who love anything astr
 - Code Institute's PostgresSQL Database
 
 ##  🔭 Bugs
-
-### Fixed bugs
-
-### Unfixed Bugs
 
 ##  🔭 Project Setup
 

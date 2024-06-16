@@ -31,4 +31,3 @@ class ChronicleDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ChronicleSerializer
     queryset = Chronicle.objects.all()
-    
