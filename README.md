@@ -1,27 +1,24 @@
-# Cosmo Chronicles - DRF API
+# 🛰️ Cosmo Chronicles - DRF API 🛰️
 
-Cosmo Chronicles is a social media app that brings users who love anything astronomy together in one place. A user can post, comment, like, and follower other users. Events and news happening in the astronomy world would be posted.
+Cosmos Chronicles is a social media app that brings users who love anything astronomy together in one place. A user can post, comment, like, and follower other users. Events and news happening in the astronomy world are also posted.
 
-* Deployed Backend:
+*  🪐 [Cosmos Chronicles - Deployed FE](https://cosmoschronicles-pp5-25951ae1934d.herokuapp.com/)
 
-* Backend Repository:
+*  🪐 [Cosmos Chronicles - Deployed BE](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/)
 
-* Deployed Frontend:
+*  🪐 [Cosmos Chronicles - Repository FE](https://github.com/apita1423/cosmoschronicles_pp5)
 
-* Frontend Repository:
+*  🪐 [Cosmos Chronicles - Repository BE](https://github.com/apita1423/cc-drf-api-pp5)
 
-## Table of Contents
-
-- [Database Schema](#database-schema)
+## 🔭 Table of Contents
 
 - [User Stories](#user-stories)
 
+- [Database Schema](#database-schema)
+
 - [Testing](#testing)
-    - [HTML Validator](#html-validator)
-    - [CSS Validator](#css-validator)
-    - [JS Validator](#js-validator)
     - [PEP8 Validator](#pep8-validator)
-    - [Manual Testing](#manual-testing)
+    - [BE - Manual Testing](#be-manual-testing)
 
 - [Technologies Used](#technologies-used)
     - [Languages Used](#languages-used)
@@ -43,33 +40,22 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
     - [Code Used](#code-used)
     - [Acknowledgments](#acknowledgments)
 
----
 
-## Database Relationship Schema
+## 🔭 User Stories
+
+
+## 🔭 Database Relationship Schema
 
 ![Database Relationship Schema Diagram](/static/readme-images/pp5-database.png)
 
----
 
-## User Stories
-
----
-
-## Testing
-
-### HTML Validator
-
-### CSS Validator
-
-### JS Validator
+## 🔭 Testing
 
 ### PEP8 Validator
 
-### Manual Testing
+### BE - Manual Testing
 
----
-
-## Technologies Used
+## 🔭 Technologies Used
 
 ### Languages Used
 
@@ -77,7 +63,6 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
 
 ### Frameworks and Libraries Used
 
-- Django
 - Django Rest Framework
 - Heroku
 - Cloudinary
@@ -87,23 +72,17 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
 
 ### Database Used
 
-- CI's Database PostgreSQL
+- Code Institute's PostgresSQL Database
 
----
-
-## Bugs
+##  🔭 Bugs
 
 ### Fixed bugs
 
 ### Unfixed Bugs
 
----
+##  🔭 Project Setup
 
-## Project Setup
-
----
-
-## Deployment
+##  🔭 Deployment
 
 ### Github
 
@@ -111,9 +90,7 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
 
 ### CI Database
 
----
-
-## Credits
+##  🔭 Credits
 
 ### Code Used
 
@@ -123,7 +100,7 @@ Cosmo Chronicles is a social media app that brings users who love anything astro
 
 - Again, and for the last time, I'm truly grateful for my mentor, Martina. She has been the best mentor someone could ask for. 
 
-- Oisin from Tutor Support, who helped with a few issues that came up. 
+- Oisin, John, and Thomas from Tutor Support, who helped with a few issues that came up. 
 
 - My husband who has encouraged me throughout the course, and, of course, my animals who have been okay with me being in front of a computer and not being a bed for them to relax. After this I can go back to being a bed. 
 
