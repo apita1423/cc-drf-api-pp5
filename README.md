@@ -51,7 +51,45 @@ Cosmos Chronicles is a social media app that brings users who love anything astr
 
 ### PEP8 Validator
 
+- Python code was tested using ![CI Python Linter](https://pep8ci.herokuapp.com/). The only errors that appeared were the whitespaces, blank lines, and no newline. These were fixed throughout the code.
+
+- CI Python Linter Errors
+![CI Python Linter Errors](/static/readme-images/pep8_errors.png)
+
+- CI Python Linter Cleared Errors
+![CI Python Linter Cleared Errors](/static/readme-images/pep8_errors_cleared.png)
+
+| App | Comments | Pass/Fail |
+| --- | --- | --- |
+| comments | All Files Passed | PASS |
+| events | All Files Passed | PASS |
+| followers | All Files Passed | PASS |
+| likes | All Files Passed | PASS |
+| news | All Files Passed | PASS |
+| posts | All Files Passed | PASS |
+| profiles | All Files Passed | PASS |
+
 ### BE - Manual Testing
+
+URLs Testing
+
+| URL | Pass/Fail |
+| --- | --- |
+| [root](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/) | PASS |
+| [/comments/](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/comments/) | PASS |
+| [/comments/:id](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/comments/3/) | PASS |
+| [/events/](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/events/) | PASS |
+| [/events/:id](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/events/2/) | PASS |
+| [/followers/](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/followers/) | PASS |
+| [/followers/:id](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/followers/144/) | PASS |
+| [/likes/](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/likes/) | PASS |
+| [/likes/:id](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/likes/12/) | PASS |
+| [/news/](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/news/) | PASS |
+| [/news/:id](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/news/9/) | PASS |
+| [/posts/](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/posts/) | PASS |
+| [/posts/:id](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/posts/5/) | PASS |
+| [/profiles/](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/profiles/) | PASS |
+| [/profiles/:id](https://cc-drf-api-pp5-b19f7ab60297.herokuapp.com/profiles/4/) | PASS |
 
 ## 🔭 Technologies Used
 
