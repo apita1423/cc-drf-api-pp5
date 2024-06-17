@@ -31,15 +31,17 @@ Cosmos Chronicles is a social media app that brings users who love anything astr
 
 - [Deployment](#deployment)
     - [Github](#github)
-    - [Heroku](#heroku)
     - [CI Database](#ci-database)
-
+    - [Heroku](#heroku)
+    
 - [Credits](#credits)
     - [Code Used](#code-used)
     - [Acknowledgments](#acknowledgments)
 
 
 ## 🔭 User Stories
+
+- User Stories are stored in Cosmos Chronicles Frontend Repository. [USER STORIES](https://github.com/apita1423/cosmoschronicles_pp5/issues)
 
 
 ## 🔭 Database Relationship Schema
@@ -112,15 +114,59 @@ URLs Testing
 
 ##  🔭 Bugs
 
+- I was having issues with the Django admin account not allowing me to login. It was only letting me see the API admin side. I resolved this issue by creating a staticfiles folder. When I ran `python3 manage.py collectstatic` and deleted the `DISABLE_COLLECTSTATIC` in Heroku, it was able to show me the Django Admin for the frontend database.
+
 ##  🔭 Project Setup
+
+I used VSCode 
 
 ##  🔭 Deployment
 
 ### Github
 
+#### Create Repository
+
+1. Go to [GitHub](https://github.com/) and login with your credentials.
+2. Create a new repository by using [CI's Full Template](https://github.com/Code-Institute-Org/ci-full-template).
+3. Click on the 'Use this template' dropdown and click on 'Create a new repository'.
+4. Add a 'Repository name' (it show if the name is available underneath the input). Make sure the 'Public' radio button is clicked.
+5. Click on 'Create repository' button.
+
+#### Fork Repository
+
+1. In the project's GitHub repository, click 'Fork' and then 'Create a Fork'.
+2. Change the name and description of the fork.
+3. Select to copy only the main branch or all branches.
+4. Click 'Create a Fork'.
+5. A newly created repository will appear in the GitHub repository. 
+
+### CI PostgresSQL Database
+
+For this project, I decided to use Code Institute's PostgreSQL Database.
+
+1. Go to [CI's PostgreSQL Database](https://dbs.ci-dbs.net/).
+2. Input email address (email adress should be the one that is used to sign in to the LMS), and click Submit.
+3. Once the Submit button is clicked, it starts creating a database.
+4. When the database is created, it sends a link to the database to the email that was used.
+5. In the email, there is the URL link to the database to use for your DATABASE_URL.
+
 ### Heroku
 
-### CI Database
+1. Go to [Heroku](https://id.heroku.com/login) and login with your credentials.
+2. Sign in with your multifactor pin.
+3. Select "New".
+4. Create a unique name (it should turn green if the name is available) and select the location.
+5. Once the app is created, click on Settings and click on 'Reveal Config Vars'
+    - ALLOWED_HOST
+    - CLIENT_ORIGIN
+    - CLIENT_ORIGIN_DEV
+    - CLOUDINARY_URL
+    - DATABASE_URL
+    - SECRET_KEY
+6. Under the 'Deploy' button, connect to your GitHub repository.
+7. Once connected, pick the repository that you will want to connect to.
+8. Under 'Manual Deploy', click on Deploy Branch.
+9. Once manual deployment is successful click on 'View' or scroll up and click on 'Open App'
 
 ##  🔭 Credits
 
@@ -135,5 +181,3 @@ URLs Testing
 - Oisin, John, and Thomas from Tutor Support, who helped with a few issues that came up. 
 
 - My husband who has encouraged me throughout the course, and, of course, my animals who have been okay with me being in front of a computer and not being a bed for them to relax. After this I can go back to being a bed. 
-
-
