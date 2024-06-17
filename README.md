@@ -116,10 +116,6 @@ URLs Testing
 
 - I was having issues with the Django admin account not allowing me to login. It was only letting me see the API admin side. I resolved this issue by creating a staticfiles folder. When I ran `python3 manage.py collectstatic` and deleted the `DISABLE_COLLECTSTATIC` in Heroku, it was able to show me the Django Admin for the frontend database.
 
-##  🔭 Project Setup
-
-I used VSCode 
-
 ##  🔭 Deployment
 
 ### Github
@@ -149,6 +145,55 @@ For this project, I decided to use Code Institute's PostgreSQL Database.
 3. Once the Submit button is clicked, it starts creating a database.
 4. When the database is created, it sends a link to the database to the email that was used.
 5. In the email, there is the URL link to the database to use for your DATABASE_URL.
+
+##  🔭 Project Setup
+
+* I used VSCode for the frontend and backend.
+
+## Django
+
+1. Create a GitHub repository with the [CI's Full Template](https://github.com/Code-Institute-Org/ci-full-template).
+2. Use `pip3 install` to install these packages:
+```
+'django<4'
+djangorestframwork
+djangorestframework-simplejwt
+django-cors-headers
+django-filter
+dj3-cloudiary-storage
+dj-rest-auth
+dj-database_url psycopg2
+gunicorn
+Pillow
+```
+3. Create a django project with this command: `django-admin startproject project-name .`
+4. In the project's Heroku, go to settings and click on 'Reveal Config Vars". Add: (for this project)
+```
+KEY: ALLOWED HOST VALUE: .herokuapp
+KEY: CLOUDINARY_URL: VALUE: (cloudinary url)
+KEY: DATABASE_URL VALUE: (database url)
+KEY: SECRET_KEY VALUE: (secret key)
+```
+To connect the backend to the frontend:
+```
+KEY: CLIENT_ORIGIN VALUE: https://cosmoschronicles-pp5-25951ae1934d.herokuapp.com
+KEY: CLIENT_ORIGIN_DEV VALUE: (local host)
+```
+5. Remember to remove trailing `/`.
+6. Create a env.py file in the root of the project. Add this:
+```
+import os
+
+os.environ['CLOUDINARY_URL] = (hidden)
+os.environ['DATABASE_URL] = (hidden)
+os.environ['SECRET_KEY] = (hidden)
+os.environ['DEV'] = '0'
+os.environ['CLIENT_ORIGIN'] = (hidden)
+os.environ['CLIENT_ORIGIN_DEV] = (hidden)
+os.environ.setdefault['SECRET_KEY] = (hidden)
+```
+
+
 
 ### Heroku
 
