@@ -53,7 +53,7 @@ Cosmos Chronicles is a social media app that brings users who love anything astr
 
 ### PEP8 Validator
 
-- Python code was tested using ![CI Python Linter](https://pep8ci.herokuapp.com/). The only errors that appeared were the whitespaces, blank lines, and no newline. These were fixed throughout the code.
+- Python code was tested using [CI Python Linter](https://pep8ci.herokuapp.com/). The only errors that appeared were the whitespaces, blank lines, and no newline. These were fixed throughout the code.
 
 - CI Python Linter Errors
 ![CI Python Linter Errors](/static/readme-images/pep8_errors.png)
