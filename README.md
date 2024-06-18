@@ -1,6 +1,6 @@
 # 🛰️ Cosmo Chronicles - DRF API 🛰️
 
-Cosmos Chronicles is a social media app that brings users who love anything astronomy together in one place. A user can post, comment, like, and follower other users. Events and news happening in the astronomy world are also posted.
+Cosmos Chronicles is a social media app that brings users who love anything astronomy together in one place. A user can post, comment, like, and follower other users. Events and News happening in the astronomy world are also posted.
 
 *  🪐 [Cosmos Chronicles - Deployed FE](https://cosmoschronicles-pp5-25951ae1934d.herokuapp.com/)
 
@@ -27,11 +27,11 @@ Cosmos Chronicles is a social media app that brings users who love anything astr
 
 - [Bugs](#bugs)
 
-- [Project Setup](#project-setup)
-
 - [Deployment](#deployment)
     - [Github](#github)
     - [CI Database](#ci-database)
+    - [Project Setup](#project-setup)
+    - [Django](#django)
     - [Heroku](#heroku)
     
 - [Credits](#credits)
@@ -141,7 +141,7 @@ URLs Testing
 For this project, I decided to use Code Institute's PostgreSQL Database.
 
 1. Go to [CI's PostgreSQL Database](https://dbs.ci-dbs.net/).
-2. Input email address (email adress should be the one that is used to sign in to the LMS), and click Submit.
+2. Input email address (email address should be the one that is used to sign in to CI's LMS), and click Submit.
 3. Once the Submit button is clicked, it starts creating a database.
 4. When the database is created, it sends a link to the database to the email that was used.
 5. In the email, there is the URL link to the database to use for your DATABASE_URL.
@@ -170,9 +170,9 @@ For this project, I decided to use Code Institute's PostgreSQL Database.
 4. In the project's Heroku, go to settings and click on 'Reveal Config Vars". Add: (for this project)
     ```
     KEY: ALLOWED HOST VALUE: .herokuapp
-    KEY: CLOUDINARY_URL: VALUE: (cloudinary url)
-    KEY: DATABASE_URL VALUE: (database url)
-    KEY: SECRET_KEY VALUE: (secret key)
+    KEY: CLOUDINARY_URL: VALUE: (hidden)
+    KEY: DATABASE_URL VALUE: (hidden)
+    KEY: SECRET_KEY VALUE: (hidden)
     ```
     To connect the backend to the frontend:
     ```
@@ -355,4 +355,4 @@ For this project, I decided to use Code Institute's PostgreSQL Database.
 
 - Oisin, John, and Thomas from Tutor Support, who helped with a few issues that came up. 
 
-- My husband who has encouraged me throughout the course, and, of course, my animals who have been okay with me being in front of a computer and not being a bed for them to relax. After this I can go back to being a bed. 
+- My husband who has encouraged me throughout the course, and, of course, my animals who have been okay with me being in front of a computer and not being a bed for them to relax. After this I can go back to being a bed 🤪.
