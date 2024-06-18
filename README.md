@@ -154,46 +154,176 @@ For this project, I decided to use Code Institute's PostgreSQL Database.
 
 1. Create a GitHub repository with the [CI's Full Template](https://github.com/Code-Institute-Org/ci-full-template).
 2. Use `pip3 install` to install these packages:
-```
-'django<4'
-djangorestframwork
-djangorestframework-simplejwt
-django-cors-headers
-django-filter
-dj3-cloudiary-storage
-dj-rest-auth
-dj-database_url psycopg2
-gunicorn
-Pillow
-```
+    ```
+    'django<4'
+    djangorestframwork
+    djangorestframework-simplejwt
+    django-cors-headers
+    django-filter
+    dj3-cloudiary-storage
+    dj-rest-auth
+    dj-database_url psycopg2
+    gunicorn
+    Pillow
+    ```
 3. Create a django project with this command: `django-admin startproject project-name .`
 4. In the project's Heroku, go to settings and click on 'Reveal Config Vars". Add: (for this project)
-```
-KEY: ALLOWED HOST VALUE: .herokuapp
-KEY: CLOUDINARY_URL: VALUE: (cloudinary url)
-KEY: DATABASE_URL VALUE: (database url)
-KEY: SECRET_KEY VALUE: (secret key)
-```
-To connect the backend to the frontend:
-```
-KEY: CLIENT_ORIGIN VALUE: https://cosmoschronicles-pp5-25951ae1934d.herokuapp.com
-KEY: CLIENT_ORIGIN_DEV VALUE: (local host)
-```
+    ```
+    KEY: ALLOWED HOST VALUE: .herokuapp
+    KEY: CLOUDINARY_URL: VALUE: (cloudinary url)
+    KEY: DATABASE_URL VALUE: (database url)
+    KEY: SECRET_KEY VALUE: (secret key)
+    ```
+    To connect the backend to the frontend:
+    ```
+    KEY: CLIENT_ORIGIN VALUE: https://cosmoschronicles-pp5-25951ae1934d.herokuapp.com
+    KEY: CLIENT_ORIGIN_DEV VALUE: (local host)
+    ```
 5. Remember to remove trailing `/`.
 6. Create a env.py file in the root of the project. Add this:
-```
-import os
+    ```
+    import os
 
-os.environ['CLOUDINARY_URL] = (hidden)
-os.environ['DATABASE_URL] = (hidden)
-os.environ['SECRET_KEY] = (hidden)
-os.environ['DEV'] = '0'
-os.environ['CLIENT_ORIGIN'] = (hidden)
-os.environ['CLIENT_ORIGIN_DEV] = (hidden)
-os.environ.setdefault['SECRET_KEY] = (hidden)
-```
+    os.environ['CLOUDINARY_URL] = (hidden)
+    os.environ['DATABASE_URL] = (hidden)
+    os.environ['SECRET_KEY] = (hidden)
+    os.environ['DEV'] = '0'
+    os.environ['CLIENT_ORIGIN'] = (hidden)
+    os.environ['CLIENT_ORIGIN_DEV] = (hidden)
+    os.environ.setdefault['SECRET_KEY] = (hidden)
+    ```
+7. Set up settings.py
+   
+    - <strong>Imports and Cloudinary:</strong>
+    ```
+    from pathlib import Path
+    import os
+    import dj_database_url
+    import re
 
+    if os.path.exists('env.py):
+        import env
+    
+    CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+    }
+    MEDIA_URL = '/media/'
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    ```
+    - <strong>REST_FRAMEWORK:</strong>
+    ```
+    REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [(
+        'rest_framework.authentication.SessionAuthentication'
+        if 'DEV' in os.environ
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )],
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DATETIME_FORMAT': '%d %b %Y',
+    }
+    if 'DEV' not in os.environ:
+        REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+            'rest_framework.renderers.JSONRenderer',
+        ]
+    ```
+    - <strong>JSON Web Token</strong>
+    ```
+    REST_USE_JWT = True
+    JWT_AUTH_SECURE = True
+    JWT_AUTH_COOKIE = 'my-app-auth'
+    JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+    JWT_AUTH_SAMESITE = 'None'
 
+    REST_AUTH_SERIALIZERS = {
+        'USER_DETAILS_SERIALIZER': 'drf_api_pp5.serializers.CurrentUserSerializer'
+    }
+    ```
+    - <strong>DEBUG and ALLOWED_HOSTS</strong>
+    ```
+    DEBUG = 'DEV' in os.environ
+
+    ALLOWED_HOSTS = [
+        os.environ.get('ALLOWED_HOST),
+        'localhost',
+    ]
+    ```
+     - <strong>Add to `INSTALLED_APPS`:</strong>
+    ```
+    'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
+    'rest_framework',
+    'django-filters',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+    'corsheaders',
+    ```
+
+    - <strong>SITE_ID and MIDDLEWARE</strong>
+
+    Add `SITE_ID = 1` underneath `INSTALLED_APPS` and add
+    `'corsheaders.middleware.CorsMiddleware',` to the top of `MIDDLEWARE`.
+
+    - <strong>CORS_ALLOWED</strong>
+    Underneath MIDDLEWARE add `CORS_ALLOWED`
+    ```
+    if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN'),
+        'https://cosmoschronicles-pp5-25951ae1934d.herokuapp.com',
+        'http://localhost:3000',
+    ]
+
+    if 'CLIENT_ORIGIN_DEV' in os.environ:
+        extracted_url = re.match(r'^([^.]+)', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+
+        CORS_ALLOWED_ORIGIN_REGEXES = [
+            rf"{extracted_url}.(eu|us)\d+\.code-institute-ide\.net$",
+        ]
+
+    CSRF_TRUSTED_ORIGINS = [os.environ.get('CLIENT_ORIGIN_DEV', 'CLIENT_ORIGIN')]
+
+    CORS_ALLOW_CREDENTIALS = True
+    ```
+
+    - <strong>Update DATABASES</strong>
+    ```
+    if 'DEV' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+    else:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        }
+    ```
+
+8. Create a Procfile in the root of the project and add:
+    ```
+    release: python3 manage.py makemigrations && python3 manage.py migrate
+    web: gunicorn project_name.wsgi
+    ```
+
+9. Migrate Database:
+    ```
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    ```
+
+10. Add to requirements.txt: `pip3 freeze --local > requirements.txt`
+
+11. Add, Commit, and Push to GitHub.
+12. Head to Heroku and Deploy Branch
 
 ### Heroku
 
